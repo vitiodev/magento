@@ -1,0 +1,22 @@
+<?php
+?>
+<div id="uic-demo-container" data-bind="scope: 'uicdemo'">
+    <!-- ko template: getTemplate() --><!-- /ko -->
+</div>
+
+<script type="text/x-magento-init">
+    {
+        "#uic-demo-container": {
+            "Magento_Ui/js/core/app": {
+                "components": {
+                    "uicdemo": {
+                        "component": "Demo_UiComponent/js/view/demo",
+                        "config": {
+                            "template": "Demo_UiComponent/demo"
+                        }
+                    }
+                }
+            }
+        }
+    }
+</script>

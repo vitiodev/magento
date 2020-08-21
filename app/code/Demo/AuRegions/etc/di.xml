@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="regions_manage_listing_data_source" xsi:type="string">DemoGridRegionsCollection</item>
+                <item name="regions_manage_edit_form_data_source" xsi:type="string">DemoGridRegionsCollection</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="DemoGridRegionsCollection" type="Demo\AuRegions\Ui\DataProvider\Region\Listing\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">directory_country_region</argument>
+            <argument name="resourceModel" xsi:type="string">Demo\AuRegions\Model\ResourceModel\Region</argument>
+        </arguments>
+    </virtualType>
+<!--    Add link to top menu-->
+    <type name="Magento\Theme\Block\Html\Topmenu">
+        <plugin name="navLinksTopmenu" type="Demo\AuRegions\Plugin\Topmenu" sortOrder="0" />
+    </type>
+</config>

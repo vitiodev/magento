@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <argument name="data" xsi:type="array">
+        <item name="js_config" xsi:type="array">
+            <item name="provider" xsi:type="string">regions_manage_listing.regions_manage_listing_data_source</item>
+            <item name="deps" xsi:type="string">regions_manage_listing.regions_manage_listing_data_source</item>
+        </item>
+        <item name="spinner" xsi:type="string">spinner_columns</item>
+        <item name="buttons" xsi:type="array">
+            <item name="add" xsi:type="array">
+                <item name="name" xsi:type="string">add</item>
+                <item name="label" xsi:type="string">Add New Region</item>
+                <item name="class" xsi:type="string">primary</item>
+                <item name="url" xsi:type="string">*/*/add</item>
+            </item>
+        </item>
+    </argument>
+    <dataSource name="regions_manage_listing_data_source">
+        <argument name="dataProvider" xsi:type="configurableObject">
+            <argument name="class" xsi:type="string">Demo\AuRegions\Ui\DataProvider\Region\ListingDataProvider</argument>
+            <argument name="name" xsi:type="string">regions_manage_listing_data_source</argument>
+            <argument name="primaryFieldName" xsi:type="string">region_id</argument>
+            <argument name="requestFieldName" xsi:type="string">id</argument>
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="component" xsi:type="string">Magento_Ui/js/grid/provider</item>
+                    <item name="update_url" xsi:type="url" path="mui/index/render"/>
+                    <item name="storageConfig" xsi:type="array">
+                        <item name="indexField" xsi:type="string">region_id</item>
+                    </item>
+                </item>
+            </argument>
+        </argument>
+    </dataSource>
+    <listingToolbar name="listing_top">
+        <argument name="data" xsi:type="array">
+            <item name="config" xsi:type="array">
+                <item name="sticky" xsi:type="boolean">true</item>
+            </item>
+        </argument>
+        <filterSearch name="fulltext"/>
+        <paging name="listing_paging"/>
+        <filters name="listing_filters" />
+    </listingToolbar>
+    <columns name="spinner_columns">
+        <selectionsColumn name="ids">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="indexField" xsi:type="string">region_id</item>
+                </item>
+            </argument>
+        </selectionsColumn>
+        <column name="region_id">
+            <settings>
+                <filter>textRange</filter>
+                <label translate="true">ID</label>
+                <resizeDefaultWidth>25</resizeDefaultWidth>
+            </settings>
+        </column>
+        <column name="default_name">
+            <settings>
+                <filter>text</filter>
+                <bodyTmpl>ui/grid/cells/text</bodyTmpl>
+                <label translate="true">Name</label>
+            </settings>
+        </column>
+        <column name="store" class="Demo\AuRegions\Ui\Component\Region\Listing\Columns\Store">
+            <settings>
+                <filter>text</filter>
+                <bodyTmpl>ui/grid/cells/text</bodyTmpl>
+                <label translate="true">Store</label>
+            </settings>
+        </column>
+        <column name="status" class="Demo\AuRegions\Ui\Component\Region\Listing\Columns\Status">
+            <settings>
+                <filter>text</filter>
+                <bodyTmpl>ui/grid/cells/text</bodyTmpl>
+                <label translate="true">Status</label>
+            </settings>
+        </column>
+        <actionsColumn name="actions" class="Demo\AuRegions\Ui\Component\Region\Listing\Columns\Actions" sortOrder="200">
+            <settings>
+                <label translate="true">Actions</label>
+            </settings>
+        </actionsColumn>
+    </columns>
+</listing>

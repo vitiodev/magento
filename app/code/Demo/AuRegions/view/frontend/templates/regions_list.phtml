@@ -1,0 +1,11 @@
+<ul>
+<?php
+
+    $collection = $block->getList();
+
+    foreach ($collection as $item) {
+       echo '<li>' . $item->getDefaultName() . '</li>';
+    }
+
+?>
+</ul>

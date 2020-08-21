@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add
+            id="Demo_AuRegions::regions"
+            title="Regions"
+            module="Demo_AuRegions"
+            sortOrder="51"
+            resource="Demo_AuRegions::regions"
+        />
+        <add
+            id="Demo_AuRegions::manage"
+            title="Manage Regions"
+            module="Demo_AuRegions"
+            sortOrder="10"
+            action="regions/manage"
+            resource="Demo_AuRegions::manage"
+            parent="Demo_AuRegions::regions"
+        />
+    </menu>
+</config>

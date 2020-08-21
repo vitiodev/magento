@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <sent_cart_to_admin>
+            <general>
+                <enable>1</enable>
+                <send_to>vitiodev@gmail.com</send_to>
+            </general>
+        </sent_cart_to_admin>
+    </default>
+</config>

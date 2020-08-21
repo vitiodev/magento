@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="page.content">
+            <uiComponent name="demo_manage_region_listing"/>
+            <block name="test" template="Demo_ManageAustralianRegions::test.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

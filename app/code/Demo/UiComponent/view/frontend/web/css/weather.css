@@ -1,0 +1,7 @@
+.weather {
+    position: relative;
+    top: -1rem;
+    left: 20rem;
+    width: 200px;
+    display: inline;
+}
