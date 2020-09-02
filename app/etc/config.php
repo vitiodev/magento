@@ -323,6 +323,7 @@ return [
         'Klarna_Ordermanagement' => 1,
         'Klarna_Onsitemessaging' => 1,
         'Klarna_Kp' => 1,
+        'Overdose_Testimonials' => 1,
         'PayPal_Braintree' => 1,
         'PayPal_BraintreeGraphQl' => 1,
         'Temando_ShippingRemover' => 1,
