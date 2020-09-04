@@ -4,7 +4,7 @@
         <form enctype="multipart/form-data" name="addData" method="post" id="addData" class="form" action="<?php echo $block->getFormAction(); ?>" data-hasrequired="<?= $block->escapeHtmlAttr(__('* Required Fields')) ?>"
               data-mage-init='{"validation":{}}'>
             <fieldset class="fieldset">
-                <legend class="legend"><span>Feedback Detail</span></legend>
+                <legend class="legend"><span>Feedback Form</span></legend>
                 <fieldset class="fieldset row">
                     <div class="fields">
                         <div class="field name required">
@@ -48,7 +48,7 @@
                    "previewTmpl":"Overdose_Testimonials/preview",
                    "allowedExtensions": "jpg jpeg gif png",
                    "maxFileSize": "1048576",
-                   "dataScope":"image",
+                   "dataScope":"imageupload",
                    "uploaderConfig": {
                         "url": "<?php echo $block->getUrl('feedback/index/uploadimage'); ?>"
                    }

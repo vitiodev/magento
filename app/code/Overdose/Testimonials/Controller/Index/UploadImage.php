@@ -2,38 +2,38 @@
 
 namespace Overdose\Testimonials\Controller\Index;
 
-use Magento\Checkout\Controller\Action;
-use Magento\Customer\Api\AccountManagementInterface;
-use Magento\Customer\Api\CustomerRepositoryInterface;
 use Magento\Framework\App\Action\HttpPostActionInterface;
-use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\Controller\Result\JsonFactory;
 use Overdose\Testimonials\Model\Imageupload\ImageUploader;
 
-class UploadImage extends Action implements HttpPostActionInterface
+class UploadImage implements HttpPostActionInterface
 {
-    private ImageUploader $imageUploader;
+    protected ImageUploader $imageUploader;
+
+    protected JsonFactory $resultJsonFactory;
+
+    protected RequestInterface $request;
 
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        \Magento\Customer\Model\Session $customerSession,
-        CustomerRepositoryInterface $customerRepository,
-        AccountManagementInterface $accountManagement,
-        ImageUploader $imageUploader
+        ImageUploader $imageUploader,
+        JsonFactory $resultJsonFactory,
+        RequestInterface $request
     ) {
         $this->imageUploader = $imageUploader;
-        parent::__construct($context, $customerSession, $customerRepository, $accountManagement);
+        $this->resultJsonFactory = $resultJsonFactory;
+        $this->request = $request;
     }
 
     public function execute()
     {
-        $imageId = $this->_request->getParam('param_name', 'image');
+        $imageId = $this->request->getParam('param_name', 'image');
 
         try {
             $result = $this->imageUploader->saveFileToTmpDir($imageId);
-        } catch (Exception $e) {
+        } catch (\Exception $e) {
             $result = ['error' => $e->getMessage(), 'errorcode' => $e->getCode()];
         }
-        return $this->resultFactory->create(ResultFactory::TYPE_JSON)->setData($result);
+        return $this->resultJsonFactory->create()->setData($result);
     }
-
 }

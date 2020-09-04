@@ -124,7 +124,13 @@ class ImageUploader
             );
         }
 
-        return $imageName;
+        $path = $this->storeManager
+                ->getStore()
+                ->getBaseUrl(
+                    UrlInterface::URL_TYPE_MEDIA
+                ) . $baseImagePath;
+
+        return $path;
     }
 
     public function saveFileToTmpDir($fileId)

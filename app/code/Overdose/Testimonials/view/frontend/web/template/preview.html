@@ -30,8 +30,6 @@
         </div>
     </div>
 
-    <input name="url" attr="value: $parent.getFilePreview($file)">
-
     <div class="file-uploader-filename" text="$file.name"/>
 
     <div class="file-uploader-meta">
@@ -40,4 +38,6 @@
         </span>
         <text args="$parent.formatSize($file.size)"/>
     </div>
+
+    <input type="hidden" name="image-name" attr="value: $file.name" />
 </div>

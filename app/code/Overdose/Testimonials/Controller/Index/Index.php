@@ -2,27 +2,24 @@
 
 namespace Overdose\Testimonials\Controller\Index;
 
-use Magento\Checkout\Controller\Action;
-use Magento\Customer\Api\AccountManagementInterface;
-use Magento\Customer\Api\CustomerRepositoryInterface;
-use Magento\Framework\Controller\ResultFactory;
+use Magento\Framework\App\Action\HttpGetActionInterface;
+use Magento\Framework\View\Result\PageFactory;
 
-class Index extends Action
+class Index implements HttpGetActionInterface
 {
-    public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        \Magento\Customer\Model\Session $customerSession,
-        CustomerRepositoryInterface $customerRepository,
-        AccountManagementInterface $accountManagement
-    ) {
-        parent::__construct($context, $customerSession, $customerRepository, $accountManagement);
+
+    protected $resultPageFactory;
+
+    public function __construct(PageFactory $resultPageFactory)
+    {
+        $this->resultPageFactory = $resultPageFactory;
     }
 
     public function execute()
     {
-        // TODO: Implement execute() method.
-        $page = $this->resultFactory->create(ResultFactory::TYPE_PAGE);
+        $page = $this->resultPageFactory->create();
         $page->getConfig()->getTitle()->set(__('Feedback'));
+
         return $page;
     }
 }

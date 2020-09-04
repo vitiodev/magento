@@ -1,0 +1,27 @@
+<?php
+
+    $collection = $block->getList();
+
+    if (!empty($collection->getSize())) {
+        echo '<div class="feedback-list"><ul>';
+
+        foreach ($collection as $item) {
+            $data = '<li class="item">' .
+                '<div class="title"><h3>' . $item->getTitle() . '</h3></div>' .
+                '<div class="message">' . $item->getMessage() . '</div>' .
+                '</li>';
+
+            if (!empty($item->getImgUrl())) {
+                $data = '<li class="item">' .
+                    '<div class="title"><h3>' . $item->getTitle() . '</h3></div>' .
+                    '<div class="message">' . $item->getMessage() . '</div>' .
+                    '<img class="image-list" src="' . $item->getImgUrl() . '">' .
+                    '</li>';
+            }
+
+            echo $data;
+        }
+        echo '</ul></div>';
+    } else {
+        echo '<h2 class="nothing">Nothing to show!</h2>';
+    }

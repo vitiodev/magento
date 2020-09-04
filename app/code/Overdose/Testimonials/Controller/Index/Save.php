@@ -2,31 +2,66 @@
 
 namespace Overdose\Testimonials\Controller\Index;
 
-use Magento\Checkout\Controller\Action;
-use Magento\Customer\Api\AccountManagementInterface;
-use Magento\Customer\Api\CustomerRepositoryInterface;
+use Magento\Framework\App\Action\HttpPostActionInterface;
+use Magento\Framework\App\RequestInterface;
+use Magento\Framework\App\Response\RedirectInterface;
+use Magento\Framework\App\ResponseInterface;
+use Magento\Framework\Exception\LocalizedException;
+use Magento\Framework\Message\ManagerInterface;
 use Overdose\Testimonials\Model\Imageupload\ImageUploader;
+use Overdose\Testimonials\Model\ResourceModel\FeedbackRepository;
 
-class Save extends Action
+class Save implements HttpPostActionInterface
 {
-    private ImageUploader $imageUploader;
+    protected RequestInterface $request;
+
+    protected FeedbackRepository $feedbackRepository;
+
+    protected ImageUploader $imageUploader;
+
+    protected ManagerInterface $messageManager;
+
+    protected RedirectInterface $redirect;
+
+    protected ResponseInterface $response;
 
     public function __construct(
-        \Magento\Framework\App\Action\Context $context,
-        \Magento\Customer\Model\Session $customerSession,
-        CustomerRepositoryInterface $customerRepository,
         ImageUploader $imageUploader,
-        AccountManagementInterface $accountManagement
+        FeedbackRepository $feedbackRepository,
+        RequestInterface $request,
+        ManagerInterface $messageManager,
+        RedirectInterface $redirect,
+        ResponseInterface $response
     ) {
+        $this->request = $request;
+        $this->feedbackRepository = $feedbackRepository;
         $this->imageUploader = $imageUploader;
-        parent::__construct($context, $customerSession, $customerRepository, $accountManagement);
+        $this->messageManager = $messageManager;
+        $this->redirect = $redirect;
+        $this->response = $response;
     }
 
     public function execute()
     {
-        $data = $this->getRequest()->getParams();
+        $data = $this->request->getParams();
 
-        $this->_redirect('*/');
+        if (isset($data['image-name'])) {
+            $data['image'] = $data['image-name'];
+            try {
+                $path = $this->imageUploader->moveFileFromTmp($data['image']);
+            } catch (LocalizedException $e) {
+            }
+            $data['img_url'] = $path;
+        }
+
+        try {
+            $this->feedbackRepository->save($data);
+            $this->messageManager->addSuccessMessage(__('Feedback has been successfully saved.'));
+        } catch (\Exception $e) {
+            $this->messageManager->addErrorMessage(__($e->getMessage()));
+        }
+
+        $this->redirect->redirect($this->response, '*/');
 
         return $data;
     }

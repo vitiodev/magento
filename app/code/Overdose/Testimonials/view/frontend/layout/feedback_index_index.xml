@@ -1,6 +1,5 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <update handle="checkout_cart_item_renderers"/>
     <head>
         <css src="Overdose_Testimonials::css/style.css" rel="stylesheet" type="text/css" />
     </head>
@@ -28,7 +27,8 @@
             </action>
         </referenceBlock>
         <referenceContainer name="content">
-            <block name="feedback" class="Overdose\Testimonials\Block\SubmitUrl" template="Overdose_Testimonials::feedback.phtml" />
+            <block name="feedback" class="Overdose\Testimonials\Block\SubmitUrl" template="Overdose_Testimonials::form.phtml" />
+            <block name="feedback-ajax" class="Overdose\Testimonials\Block\Ajax" template="Overdose_Testimonials::ajax.phtml" />
         </referenceContainer>
     </body>
 </page>
