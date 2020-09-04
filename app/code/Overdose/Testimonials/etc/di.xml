@@ -24,8 +24,4 @@
             <argument name="imageUploader" xsi:type="object">Overdose\Testimonials\ReferenceImageUpload</argument>
         </arguments>
     </type>
-    <!--    Add link to top menu-->
-    <type name="Magento\Theme\Block\Html\Topmenu">
-        <plugin name="navLinksTopmenu" type="Overdose\Testimonials\Plugin\Topmenu" sortOrder="0" />
-    </type>
 </config>
