@@ -27,8 +27,5 @@
             <block name="feedback" class="Overdose\Testimonials\Block\SubmitUrl" template="Overdose_Testimonials::form.phtml" />
             <block name="feedback.ajax" template="Overdose_Testimonials::ajax.phtml" />
         </referenceContainer>
-        <referenceBlock name="catalog.topnav">
-            <block name="custom.menu.links" template="Overdose_Testimonials::html/topmenu_feedback.phtml"/>
-        </referenceBlock>
     </body>
 </page>
