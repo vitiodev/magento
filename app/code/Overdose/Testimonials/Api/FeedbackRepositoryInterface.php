@@ -6,5 +6,5 @@ interface FeedbackRepositoryInterface
 {
     public function save($data);
 
-    public function getFeedbackCollection();
+    public function getCollection();
 }

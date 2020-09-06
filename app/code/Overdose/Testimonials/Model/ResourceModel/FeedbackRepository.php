@@ -25,7 +25,7 @@ class FeedbackRepository implements \Overdose\Testimonials\Api\FeedbackRepositor
         return $rowData->save();
     }
 
-    public function getFeedbackCollection()
+    public function getCollection()
     {
         return $this->collectionFactory->create();
     }

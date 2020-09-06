@@ -47,9 +47,11 @@ class Save implements HttpPostActionInterface
 
         if (isset($data['image-name'])) {
             $data['image'] = $data['image-name'];
+            $path = '';
             try {
                 $path = $this->imageUploader->moveFileFromTmp($data['image']);
             } catch (LocalizedException $e) {
+                $this->messageManager->addErrorMessage(__($e->getMessage()));
             }
             $data['img_url'] = $path;
         }

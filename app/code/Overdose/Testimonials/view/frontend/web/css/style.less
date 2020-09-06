@@ -1,0 +1,119 @@
+.image-uploader {
+
+    .image {
+        background: #ffffff;
+        box-sizing: border-box;
+        display: inline-block;
+        margin: 1.2rem;
+        position: relative;
+        vertical-align: top;
+        width: 150px;
+
+        &.image-placeholder {
+            margin-left: 0;
+            margin-right: 0;
+            height: 150px;
+
+            .product-image-wrapper {
+                display: inline-block;
+                text-decoration: none;
+                background: #ffffff;
+                border: 1px solid #cccccc;
+                box-sizing: border-box;
+                cursor: pointer;
+                height: 150px;
+                line-height: 1;
+                margin-bottom: 1rem;
+                overflow: hidden;
+                position: relative;
+                width: 150px;
+            }
+
+            .product-image-wrapper::before {
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 20px;
+                -webkit-font-smoothing: antialiased;
+                -moz-osx-font-smoothing: grayscale;
+                font-size: 6rem;
+                line-height: inherit;
+                color: #cccccc;
+                content: '\e614';
+                font-family: 'luma-icons';
+                vertical-align: middle;
+                display: inline-block;
+                font-weight: normal;
+                overflow: hidden;
+                speak: none;
+                text-align: center;
+            }
+        }
+
+        .image-placeholder-text {
+            bottom: 0;
+            color: #008bdb;
+            font-size: 1.3rem;
+            left: 0;
+            line-height: 1.333;
+            margin-bottom: 15%;
+            padding: 0 1rem;
+            position: absolute;
+            right: 0;
+            text-align: center;
+        }
+
+        .file-uploader-summary {
+            display: inline-block;
+            vertical-align: top;
+        }
+    }
+
+    .image-uploader-spinner {
+            width: 50%;
+            height: 50%;
+            background-size: auto;
+            margin: 0;
+            transform: translate(50%, 50%);
+            position: absolute;
+        }
+
+}
+
+.feedback-list {
+    margin-top: 3rem;
+    padding: 1rem;
+
+    ul {
+            list-style: decimal;
+
+        .item {
+                padding: 1rem;
+                border-bottom: 1px solid #c6c6c6;
+                border-left: 1px solid #c6c6c6;
+
+            .title {
+                    padding: 1rem;
+                    border-bottom: 1px solid #c6c6c6;
+                }
+
+            .message {
+                    padding: 1rem;
+                }
+
+            .image-list {
+                    max-width: 400px;
+                    padding: 1rem;
+                    border: 1rem solid #e5e5e5;
+                }
+            }
+        }
+
+    .nothing {
+            text-align: center;
+        }
+}
+
+
+
+

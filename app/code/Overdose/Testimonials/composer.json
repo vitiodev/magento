@@ -1,6 +1,6 @@
 {
   "name": "Overdose/Testimonials",
-  "description": "N/A",
+  "description": "A module that creates a feedback page in the Magento frontend area",
   "type": "magento2-module",
   "version": "1.0.0",
   "license": [
@@ -8,12 +8,12 @@
     "AFL-3.0"
   ],
   "require": {
-    "php": "~7.2.0"
+    "php": "~7.4.0"
   },
   "autoload": {
     "files": [ "registration.php" ],
     "psr-4": {
-      "MyCompany\\ExampleAdminNewPage\\": ""
+      "Overdose\\Testimonials\\": ""
     }
   }
 }

@@ -28,7 +28,7 @@
         </referenceBlock>
         <referenceContainer name="content">
             <block name="feedback" class="Overdose\Testimonials\Block\SubmitUrl" template="Overdose_Testimonials::form.phtml" />
-            <block name="feedback.ajax" class="Overdose\Testimonials\Block\Ajax" template="Overdose_Testimonials::ajax.phtml" />
+            <block name="feedback.ajax" template="Overdose_Testimonials::ajax.phtml" />
         </referenceContainer>
         <referenceBlock name="catalog.topnav">
             <block name="custom.menu.links" template="Overdose_Testimonials::html/topmenu_feedback.phtml"/>
