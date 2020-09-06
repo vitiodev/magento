@@ -1,8 +1,5 @@
 <?xml version="1.0"?>
 <page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-    <head>
-        <css src="Overdose_Testimonials::css/style.css" rel="stylesheet" type="text/css" />
-    </head>
     <body>
         <referenceBlock name="breadcrumbs">
             <action method="addCrumb">
@@ -30,5 +27,8 @@
             <block name="feedback" class="Overdose\Testimonials\Block\SubmitUrl" template="Overdose_Testimonials::form.phtml" />
             <block name="feedback.ajax" template="Overdose_Testimonials::ajax.phtml" />
         </referenceContainer>
+        <referenceBlock name="catalog.topnav">
+            <block name="custom.menu.links" template="Overdose_Testimonials::html/topmenu_feedback.phtml"/>
+        </referenceBlock>
     </body>
 </page>
